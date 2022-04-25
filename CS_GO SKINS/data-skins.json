@@ -1,0 +1,74 @@
+[
+    {
+        "name" : "M4 вой",
+        "category" : "Rifles",
+        "price" : "1600",
+        "imgSrc" : "images/вой.png"
+    },
+    {
+        "name" : "Scout",
+        "category" : "Sniper Rifles",
+        "price" : "120",
+        "imgSrc" : "images/муха.png"
+    },
+    {
+        "name" : "Akm47 Синии линии",
+        "category" : "Rifles",
+        "price" : "399",
+        "imgSrc" : "images/синиелинии.jfif"
+    },
+    {
+        "name" : "Akm47 Краски",
+        "category" : "Rifles",
+        "price" : "86",
+        "imgSrc" : "images/ak47краски.png"
+    },
+    {
+        "name" : "Ak47 золото",
+        "category" : "Rifles",
+        "price" : "154",
+        "imgSrc" : "images/ak47gold.png"
+    },
+    {
+        "name" : "AWM DragonLor",
+        "category" : "Sniper Rifles",
+        "price" : "200",
+        "imgSrc" : "images/awm dragonlor.jfif"
+    },
+    {
+        "name" : "AWM Simple",
+        "category" : "Sniper Rifles",
+        "price" : "399",
+        "imgSrc" : "images/awmSimple.jfif"
+    },
+    {
+        "name" : "Digle плямя",
+        "category" : "Pistols",
+        "price" : "68",
+        "imgSrc" : "images/digleпламя.png"
+    },
+    {
+        "name" : "Cerambit паутина",
+        "category" : "Knife",
+        "price" : "2398",
+        "imgSrc" : "images/kerambitnet.jfif"
+    },
+    {
+        "name" : "Knife Космос",
+        "category" : "Knife",
+        "price" : "649",
+        "imgSrc" : "images/Knifeкосмос.jfif"
+    },
+    {
+        "name" : "M4A16",
+        "category" : "Rifles",
+        "price" : "69",
+        "imgSrc" : "images/m4a16.jfif"
+    },
+    {
+        "name" : "Tec9",
+        "category" : "Pistols",
+        "price" : "224",
+        "imgSrc" : "images/tec9.png"
+    }
+]
