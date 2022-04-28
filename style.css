@@ -82,7 +82,7 @@ body{
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .input-field input{
@@ -179,7 +179,11 @@ body{
     text-align: center;
 }
 
-.passwordred {
+.error {
+    font-size: 12px;
     color: red;
-    font-size: 10px;
+}
+
+.input-error input{
+    border-bottom-color: red;
 }

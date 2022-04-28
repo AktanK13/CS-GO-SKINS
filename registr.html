@@ -55,22 +55,23 @@
             <div class="form signup">
                 <span class="title">Registration</span>
 
-                <form action="#" name='form'>
+                <form action="#" id="form" name='form'>
                     <div class="input-field">
                         <input id="username" type="text" name="name" placeholder="Enter your name" required>
                         <i class="uil uil-user"></i>
                     </div>
-                    <span id="namespan"></span>
-                    <div class="input-field">
+                    <span id="namespan" class="error"></span>
+                    <div class="input-field" >
                         <input id="email" type="text" name="email" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
-                    <span id="emailspan"></span>
+                    <span id="emailspan" class="error"></span>
                     <div class="input-field">
                         <input id="password1" type="password" class="password" placeholder="Create a password" required>
+                        <i class="uil uil-eye-slash showHidePw"></i>
                         <i class="uil uil-lock icon"></i>
                     </div>
-                    <span id="passwordspan"></span>
+                    <span id="passwordspan" class="error"></span>
                     <div class="input-field">
                         <input id="password2" type="password" class="password" placeholder="Confirm a password" required>
                         <i class="uil uil-lock icon"></i>
