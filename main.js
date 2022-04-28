@@ -98,7 +98,7 @@ const data =  JSON.parse((localStorage.getItem('users')))
                 password: password.value,
                 email: email.value,
             })
-            alert('new acount be ceated')
+            alert('You create acount')
             username.value = '';
             email.value = '';
             password1.value = '';
