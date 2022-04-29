@@ -16,9 +16,16 @@ const container = document.querySelector(".container"),
       singupbtn = document.getElementById("singup"),
       singinpassword = document.getElementById("singinpassword"),
       singinemail = document.getElementById("singinemail");
+    // NodeValue
+const usernameValue = username.value.trim(),
+      emailValue = email.value.trim(),
+      password1Value = password1.value.trim(),
+      password2Value = password2.value.trim();
       
+const usersArray = [];
       
-      
+const data =  JSON.parse((localStorage.getItem('users')))
+
       pwShowHide.forEach(eyeIcon =>{
           eyeIcon.addEventListener("click", ()=>{
               pwFields.forEach(pwField =>{
@@ -58,6 +65,19 @@ const container = document.querySelector(".container"),
         errorBack(password2)
         setErrorFor(passwordspan, "")
     });
+
+function resetInput() {
+    username.addEventListener("click", ( )=>{
+        setErrorFor(namespan, "")
+    });
+    email.addEventListener("click", ( )=>{
+        setErrorFor(emailspan, "")
+    });
+    password1.addEventListener("click", ( )=>{
+        setErrorFor(passwordspan, "")
+    });
+
+}
     
    
     
@@ -68,40 +88,56 @@ const container = document.querySelector(".container"),
 
         checkInputs()
     })
-    
 
 
 function checkInputs() {
-
-    const usernameValue = username.value.trim(),
-          emailValue = email.value.trim(),
-          password1Value = password1.value.trim(),
-          password2Value = password2.value.trim();
     
+    const usernameValue = username.value.trim(),
+      emailValue = email.value.trim(),
+      password1Value = password1.value.trim(),
+      password2Value = password2.value.trim();
+
     if(usernameValue === '') {
         setErrorFor(namespan, "type your name")
         inputError(username)
-    }
-    if(emailValue === '') {
+    } else if (!alphanumeric(usernameValue)) {
+        setErrorFor(namespan, "type your name")
+        inputError(username)
+    } else if(emailValue === '') {
         setErrorFor(emailspan, 'Email cannot be blank');
         inputError(email)
     } else if (!isEmail(emailValue)) {
         setErrorFor(emailspan, 'Not a valid email');
         inputError(email)
-    }
-    
-    if(password1Value === '') {
+    } else if(password1Value === '') {
         setErrorFor(passwordspan, 'Password cannot be blank');
         inputError(password1)
-    }
-    
-    if(password2Value === '') {
+    } else if(password2Value === '') {
         setErrorFor(passwordspan, 'Password cannot be blank');
         inputError(password2)
     } else if(password1Value !== password2Value) {
         setErrorFor(passwordspan, 'Passwords does not match');
         inputError(password1)
         inputError(password2)
+    } else if(password1Value.length <= 7) {
+        setErrorFor(passwordspan, 'Short password');
+        inputError(password1)
+        inputError(password2)
+    } else {
+        const user = makeUser(usernameValue, emailValue, password1Value);
+        usersArray.push(user)
+        localStorage.setItem('users', JSON.stringify(usersArray))
+        resetInput()
+        container.classList.remove("active"); 
+    }
+}
+
+function singin() {
+    if(data.some(item => item.email === singinemail.value && item.password === singinpassword.value)){
+        window.open("/CS_GO SKINS/index.html", "_self")
+    }else{
+        singinemail.style.borderBottom = "1px solid red"
+        singinpassword.style.borderBottom = "1px solid red"
     }
 }
 
@@ -120,4 +156,20 @@ function errorBack(input) {
     
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function alphanumeric(data) { 
+    let letters = /^[0-9a-zA-Z]+$/;
+    if (letters.test(data)) {
+      return true;
+    }
+    return false;
+}
+
+function makeUser(name, email, password) {
+    return {
+      name: name,
+      email: email,
+      password: password
+    }
 }
